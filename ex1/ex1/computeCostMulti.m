@@ -14,8 +14,12 @@ J = 0;
 %               You should set J to the cost.
 
 
+% Formula:
+% J-theta = 1/2m * (X*theta - y-vector)' * (X*theta - y-vector)
 
+h = X * theta
 
+J = (1 / (2 * m)) * ((h - y)' * (h - y))
 
 % =========================================================================
 

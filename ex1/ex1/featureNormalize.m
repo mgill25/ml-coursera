@@ -26,13 +26,18 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+% subtract the mean and then divide by the standard deviation col and row
+% wise.
+mu = mean(X_norm)
+sigma = std(X_norm)
 
+% size(x, 1) returns number of rows in x
+% size(x, 2) returns number of columns in x
 
-
-
-
-
-
+for j=1:size(X, 2) 
+    X_norm(:, j) = (X_norm(:, j) - mu(j)) / sigma(j);
+    % Colon sign : represents we apply the operation on all rows.
+end
 
 % ============================================================
 
