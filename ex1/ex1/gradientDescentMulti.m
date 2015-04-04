@@ -16,17 +16,15 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCostMulti) and gradient here.
     %
-
-
-
-
-
-
-
-
-
-
-
+    
+    hypothesis = X * theta;  % Column vector of each hypothesis.
+    
+    % now multiple all the X's with the difference of hypothesis and
+    % expected output.
+    slopeOfTangent = X' * (hypothesis - y);
+    
+    % plug the above term into the Gradient Descent Formula!
+    theta = theta - (alpha / m * slopeOfTangent);
     % ============================================================
 
     % Save the cost J in every iteration    
