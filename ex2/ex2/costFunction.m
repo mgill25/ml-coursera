@@ -14,19 +14,22 @@ grad = zeros(size(theta));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
 %               You should set J to the cost.
+
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 %
 % Note: grad should have the same dimensions as theta
 %
 
+hX = sigmoid(X * theta);  % our hypothesis is a sigmoid function.
 
+costTerm = -y' * log(hX) - (1 - y') * log(1 - hX);
 
+% Vectorized operation. All items in y are multiplied element-wise
+% by items in log(hX) and the same thing happens in the second term.
 
-
-
-
-
+J = sum(costTerm) / m;
+grad = X' * (hX - y) / m;
 % =============================================================
 
 end
