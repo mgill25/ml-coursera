@@ -17,11 +17,22 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
+hX = sigmoid(X * theta);  % our hypothesis is a sigmoid function.
 
+costTerm = sum(-y' * log(hX) - (1 - y') * log(1 - hX)) / m;
 
+% lambdaCost = ((lambda / 2 * m) * sum(theta(2:end) .^ 2));
+% something weird going on with parens here. The above line doesn't work.
+% also, remember that we don't consider theta(0) here!
+lambdaCost = ((lambda/(2*m)) * sum(theta(2:end) .^ 2));
 
+J = costTerm + lambdaCost;
+% fprintf('J is: %s\n', J);
 
+result = (X' * (hX - y) / m);
 
+grad(1) = result(1);
+grad(2:end) = result(2:end) + (theta(2:end) * lambda / m);
 % =============================================================
 
 end

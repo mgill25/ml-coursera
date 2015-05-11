@@ -14,14 +14,15 @@ p = zeros(m, 1);
 %               your learned logistic regression parameters. 
 %               You should set p to a vector of 0's and 1's
 %
+    function y = getProb(sigVal)
+        if sigVal >= 0.5
+            y = 1;
+        else
+            y = 0;
+        end
+    end
 
-
-
-
-
-
-
+rv = sigmoid(X * theta);
+p = arrayfun(@getProb, rv);
 % =========================================================================
-
-
 end

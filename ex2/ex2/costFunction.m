@@ -29,6 +29,7 @@ costTerm = -y' * log(hX) - (1 - y') * log(1 - hX);
 % by items in log(hX) and the same thing happens in the second term.
 
 J = sum(costTerm) / m;
+
 grad = X' * (hX - y) / m;
 % =============================================================
 
